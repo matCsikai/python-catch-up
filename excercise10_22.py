@@ -29,13 +29,13 @@ def generate_n_chars(integer, character):
 print(generate_n_chars(6, "s"))
 
 
-def histogram(int_list):
+def print_histogram(int_list):
     #  Define a procedure histogram() that takes a list of integers and prints a histogram to the screen.
     for num in int_list:
         print(num * '*')
 
 int_list = [8, 7, 6]
-histogram(int_list)
+print_histogram(int_list)
 
 
 def get_max_in_list(num_list):
@@ -85,18 +85,18 @@ def palindrome_recognizer(sentence):
     # lasagna hog.", "Was it a rat I saw?", "Step on no pets", "Sit on a potato pan, Otis", "Lisa Bonet ate no basil",
     # "Satan, oscillate my metallic sonatas", "I roamed under it as a tired nude Maori", "Rise to vote sir", or the
     # exclamation "Dammit, I'm mad!". Note that punctuation, capitalization, and spacing are usually ignored.
-    sentence_list = list(sentence.lower())
-    for char in sentence_list:
-        if char in string.punctuation or char == ' ':
-            sentence_list.remove(char)
-    print(sentence_list)
-    reversed_sentence = sentence_list[::-1]
-    if sentence_list == reversed_sentence:
+    sentence_to_lower = sentence.lower()
+    mod_character_list = []
+    for char in sentence_to_lower:
+        if char not in string.punctuation and char != ' ':
+            mod_character_list.append(char)
+    reversed_sentence = mod_character_list[::-1]
+    if mod_character_list == reversed_sentence:
         return(True)
     else:
         return(False)
 
-print(palindrome_recognizer("Satan, oscillate my metallic sonatasS"))
+print(palindrome_recognizer("Satan, oscillate my metallic sonatas"))
 
 
 def pangram(sentence):
